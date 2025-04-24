@@ -25,8 +25,12 @@ Steps
 11. Mount GDrive to Google Collab
 12. Write 5 lines of program and run one by one
     a. `!nvidia-smi` | to check we use graphics card or not
+    
     b. `!pip install ultralytics` | install ultraltics library
+    
     c. `from ultralytics import YOLO` | import the library
+    
     d. `!yolo task=detect mode=predict model=yolov8l.pt conf=0.25 source='online images url'` | for testing
+    
     e. `!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/(path to data.yaml) epochs=50 imgsz=640` | creating weights for YOLOv8
-13. Write the code
+14. Write the code
