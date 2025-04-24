@@ -1,5 +1,14 @@
 # APD-Recognition
 
+Package Requirement
+1. OpenCV Python `pip install opencv-python`
+2. CVZone `pip install cvzone`
+3. ultralytics `pip install ultralytics`
+
+All at once `pip install Requirements.txt`
+
+---------------------------------------------------------------------------------
+
 Steps
 1. Download Image Labelling from github repository `https://github.com/HumanSignal/labelImg/releases/tag/v1.8.1` choose `windows_v1.8.1.zip`
 2. Make 3 folders
