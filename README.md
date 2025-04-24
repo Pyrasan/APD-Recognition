@@ -24,9 +24,10 @@ Steps
 
     nc: n `(n=number of classes)`
     names: ['(your labels seperate with coma)']
-11. Open Google Collab
-12. Mount GDrive to Google Collab
-13. Write 5 lines of program and run one by one
+11. Upload the 3 folders to GDrive
+12. Open Google Collab
+13. Mount GDrive to Google Collab
+14. Write 5 lines of program and run one by one
     
     a. `!nvidia-smi` | to check we use graphics card or not
     
