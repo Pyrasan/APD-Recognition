@@ -7,7 +7,7 @@ Package Requirement
 
 All at once `pip install Requirements.txt`
 
-Note: Recommended to use Virtual Environment
+Note: Recommended to use Virtual Environment to avoid issues with another Python version
 
 ---------------------------------------------------------------------------------
 
