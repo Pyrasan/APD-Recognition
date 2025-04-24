@@ -3,6 +3,7 @@
 Steps
 1. Download Image Labelling from github repository `https://github.com/HumanSignal/labelImg/releases/tag/v1.8.1` choose `windows_v1.8.1.zip`
 2. Make 3 folders
+   
    a. train
    
    b. valid
@@ -26,6 +27,7 @@ Steps
 11. Open Google Collab
 12. Mount GDrive to Google Collab
 13. Write 5 lines of program and run one by one
+    
     a. `!nvidia-smi` | to check we use graphics card or not
     
     b. `!pip install ultralytics` | install ultraltics library
@@ -35,4 +37,4 @@ Steps
     d. `!yolo task=detect mode=predict model=yolov8l.pt conf=0.25 source='online images url'` | for testing
     
     e. `!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/(path to data.yaml) epochs=50 imgsz=640` | creating weights for YOLOv8
-14. Write the code
+15. Write the code
