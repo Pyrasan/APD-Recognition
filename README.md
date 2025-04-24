@@ -7,6 +7,8 @@ Package Requirement
 
 All at once `pip install Requirements.txt`
 
+Note: Recommended to use Virtual Environment
+
 ---------------------------------------------------------------------------------
 
 Steps
