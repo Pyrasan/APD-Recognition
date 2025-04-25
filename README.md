@@ -43,7 +43,8 @@ Custom Dataset Training using Google Collab:
     names: ['(your labels seperate with coma)']
 13. Upload the 3 folders to GDrive
 14. Open Google Collab
-15. Mount GDrive to Google Collab
+15. Mount GDrive to Google Collab | or run this code `from google.colab import drive
+drive.mount('/content/drive')`
 16. Write 5 lines of program and run one by one
     
     a. `!nvidia-smi` | to check we use graphics card or not
