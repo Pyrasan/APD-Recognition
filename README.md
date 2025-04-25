@@ -43,9 +43,13 @@ Custom Dataset Training using Google Collab:
     names: ['(your labels seperate with coma)']
 13. Upload the 3 folders to GDrive
 14. Open Google Collab
-15. Mount GDrive to Google Collab | or run this code `from google.colab import drive
-drive.mount('/content/drive')`
-16. Write 5 lines of program and run one by one
+15. Mount GDrive to Google Collab
+
+    or run this code
+
+    `from google.colab import drive
+     drive.mount('/content/drive')`
+17. Write 5 lines of program and run one by one
     
     a. `!nvidia-smi` | to check we use graphics card or not
     
@@ -56,4 +60,4 @@ drive.mount('/content/drive')`
     d. `!yolo task=detect mode=predict model=yolov8l.pt conf=0.25 source='online images url'` | for testing
     
     e. `!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/(path to data.yaml) epochs=50 imgsz=640` | Training dataset and creating weights for YOLOv8
-17. Write the code and put the weights `best.apt` to the folder
+18. Write the code and put the weights `best.apt` to the folder
