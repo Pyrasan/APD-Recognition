@@ -20,6 +20,7 @@ Custom Dataset Training using Google Collab:
    b. valid
    
    c. test
+   
    With each of folders contains `images` and `labels` folders
 4. Place images that want to be labelled to all 3 folders in `images` folder
 5. Open Image Labelling program
