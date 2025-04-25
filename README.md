@@ -47,8 +47,9 @@ Custom Dataset Training using Google Collab:
 
     or run this code
 
-    `from google.colab import drive
-     drive.mount('/content/drive')`
+    `from google.colab import drive`
+    
+    `drive.mount('/content/drive')`
 17. Write 5 lines of program and run one by one
     
     a. `!nvidia-smi` | to check we use graphics card or not
