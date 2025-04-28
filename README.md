@@ -4,6 +4,8 @@ Package Requirement
 1. OpenCV Python `pip install opencv-python`
 2. CVZone `pip install cvzone`
 3. ultralytics `pip install ultralytics`
+4. tkinter `pip install tk`
+5. PyExcel `pip install opnepyxl`
 
 All at once `pip install Requirements.txt`
 
