@@ -1,3 +1,5 @@
 cvzone
 opencv-python
 ultralytics
+tk
+openpyxl
