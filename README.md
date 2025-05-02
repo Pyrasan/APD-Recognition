@@ -92,13 +92,19 @@ Custom Dataset Training using Google Collab:
 
 Directory
 ```
-project/
+project-folder/
 │
 ├── app.py
-├── templates/
-│   └── index.html
-├── static/
-│   └── detected_images/
 ├── EncodeFile.p
-├── helm.pt, rompi.pt, sepatu.pt, sarungtangan.pt
+├── helm.pt
+├── rompi.pt
+├── sepatu.pt
+├── sarungtangan.pt
+├── models/
+│   └── shape_predictor_68_face_landmarks.dat
+├── static/
+│   └── detected_images/       <- Hasil deteksi disimpan di sini
+├── laporan/                   <- File Excel akan disimpan/diupdate di sini
+└── templates/
+    └── index.html
 ```
