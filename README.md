@@ -20,6 +20,8 @@ Package Requirement | web
 
 All at once `pip install -r web_requirements.txt`
 
+PyInstaller `pip install pyinstaller` -> Creating .exe
+
 Note: Recommended to use Virtual Environment to avoid issues with another Python version
 
 ---------------------------------------------------------------------------------
