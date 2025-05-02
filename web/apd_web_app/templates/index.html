@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+    <title>Deteksi Wajah & APD</title>
+</head>
+<body>
+    <h2>Upload Gambar</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Proses</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p style="color:green;">{{ success }}</p>
+    {% endif %}
+
+    {% if result %}
+        <hr>
+        <p><strong>Nama:</strong> {{ result.name }}</p>
+        <p><strong>Status Kerja:</strong> {{ result.status }}</p>
+        <p><strong>APD Terdeteksi:</strong> {{ result.apd | join(', ') }}</p>
+        <img src="{{ result.image_url }}" width="400">
+
+        <form method="POST">
+            <input type="hidden" name="name" value="{{ result.name }}">
+            <input type="hidden" name="status" value="{{ result.status }}">
+            <input type="hidden" name="apd" value="{{ result.apd | join(', ') }}">
+            <input type="hidden" name="filename" value="{{ result.filename }}">
+            <button type="submit" name="confirm" value="yes">Konfirmasi dan Simpan</button>
+        </form>
+    {% endif %}
+</body>
+</center>
+</html>
