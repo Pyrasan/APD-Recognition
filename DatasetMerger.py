@@ -10,8 +10,8 @@ class_map = {
 }
 
 splits = ["train", "valid", "test"]
-base_input = "C:\\Users\\ACER\\Videos\\tes"
-base_output = "C:\\Users\\ACER\\Videos\\output"
+base_input = r"C:\Users\ACER\Videos\tes"
+base_output = r"C:\Users\ACER\Videos\output"
 
 # Buat folder output
 for split in splits:
