@@ -12,7 +12,7 @@ All at once `pip install -r local_requirements.txt`
 
 Package Requirement | web
 1. Flask `pip install Flask`
-2. OpenCN Python `pip install opencv-python`
+2. OpenCV Python `pip install opencv-python`
 3. Face Recognition `pip install face_recognition`
 4. ultralytics `pip install ultralytics`
 5. CVZone `pip install cvzone`
