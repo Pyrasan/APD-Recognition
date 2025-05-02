@@ -11,7 +11,7 @@ import face_recognition
 import openpyxl
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'static/detected_images'
+UPLOAD_FOLDER = os.path.join('static', 'detected_images')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load face encoding
@@ -44,7 +44,14 @@ def generate_image_filename(name, ext='.jpg'):
     return f"{safe_name}_{timestamp}{ext}"
 
 def detect_face_from_image(img):
-    imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
+    if img is None:
+        print("Gambar tidak valid.")
+        return None
+
+    if img.shape[-1] == 4:
+        img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
+
+    imgS = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
     imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
 
     faces = face_recognition.face_locations(imgS)
@@ -62,22 +69,18 @@ def detect_face_from_image(img):
 
 def detect_apd_from_image(img):
     detected_items = set()
-
     for model, label in model_info:
         results = model(img, stream=True)
         for r in results:
-            boxes = r.boxes
-            for box in boxes:
+            for box in r.boxes:
                 conf = box.conf[0]
                 if conf > 0.65:
                     detected_items.add(label)
-
                     x1, y1, x2, y2 = map(int, box.xyxy[0])
                     w, h = x2 - x1, y2 - y1
                     cvzone.cornerRect(img, (x1, y1, w, h))
                     label_text = f'{label} {conf:.2f}'
-                    cvzone.putTextRect(img, label_text, (x1, max(35, y1)), scale=1, thickness=1)
-
+                    cvzone.putTextRect(img, label_text, (x1, max(35, y1)), scale=2, thickness=2)
     return detected_items
 
 def setup_excel():
@@ -127,8 +130,12 @@ def index():
             detected_apd = detect_apd_from_image(img)
             filename = generate_image_filename(name)
             save_path = os.path.join(UPLOAD_FOLDER, filename)
-            cv2.imwrite(save_path, img)
+            print("Menyimpan gambar ke:", save_path.replace("\\", "/"))
+            success = cv2.imwrite(save_path, img)
+            print("Berhasil simpan?", success)
+            print("File ada setelah simpan?", os.path.exists(save_path))
 
+            image_url = url_for('static', filename=f'detected_images/{filename}')
             status = 'Diizinkan' if len(detected_apd) == 4 else 'Tidak Diizinkan'
 
             return render_template('index.html', result={
@@ -136,10 +143,10 @@ def index():
                 'status': status,
                 'apd': list(detected_apd),
                 'filename': filename,
-                'image_url': url_for('static', filename=f'detected_images/{filename}')
+                'image_url': image_url
             })
 
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
