@@ -86,3 +86,15 @@ Custom Dataset Training using Google Collab:
 
 -------------------------------------------------------------
 
+# APD Web
+
+Directory
+project/
+│
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── detected_images/
+├── EncodeFile.p
+├── helm.pt, rompi.pt, sepatu.pt, sarungtangan.pt
