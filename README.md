@@ -75,3 +75,12 @@ Custom Dataset Training using Google Collab:
     
     e. `!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/(path to data.yaml) epochs=50 imgsz=640` | Training dataset and creating weights for YOLOv8
 18. Write the code and put the weights `best.apt` to the folder
+
+-------------------------------------------------------------
+
+# YOLOv8 Weights Download
+
+`https://drive.google.com/drive/folders/1hr0uoZPzmqk5PSoxRONG0HotxXcK3Nus?usp=sharing` 
+
+-------------------------------------------------------------
+
