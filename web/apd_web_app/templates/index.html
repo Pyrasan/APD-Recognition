@@ -1,21 +1,56 @@
 <!DOCTYPE html>
-<html>
-<center>
+<html lang="id">
 <head>
-    <title>Deteksi Wajah & APD</title>
+    <meta charset="UTF-8">
+    <title>Deteksi APD & Wajah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="file"], button {
+            margin-top: 10px;
+        }
+        img {
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h2>Upload Gambar</h2>
+<div class="container">
+    <h2>Upload Gambar untuk Deteksi APD dan Wajah</h2>
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="image" required>
-        <button type="submit">Proses</button>
+        <br>
+        <button type="submit">Upload & Deteksi</button>
     </form>
 
     {% if error %}
-        <p style="color:red;">{{ error }}</p>
+        <p class="error">{{ error }}</p>
     {% endif %}
+
     {% if success %}
-        <p style="color:green;">{{ success }}</p>
+        <p class="success">{{ success }}</p>
     {% endif %}
 
     {% if result %}
@@ -23,16 +58,16 @@
         <p><strong>Nama:</strong> {{ result.name }}</p>
         <p><strong>Status Kerja:</strong> {{ result.status }}</p>
         <p><strong>APD Terdeteksi:</strong> {{ result.apd | join(', ') }}</p>
-        <img src="{{ result.image_url }}" width="400">
-
+        <img src="{{ result.image_url }}" width="400" alt="Hasil Deteksi">
+        
         <form method="POST">
             <input type="hidden" name="name" value="{{ result.name }}">
             <input type="hidden" name="status" value="{{ result.status }}">
             <input type="hidden" name="apd" value="{{ result.apd | join(', ') }}">
             <input type="hidden" name="filename" value="{{ result.filename }}">
-            <button type="submit" name="confirm" value="yes">Konfirmasi dan Simpan</button>
+            <button type="submit" name="confirm" value="yes">Konfirmasi dan Simpan ke Excel</button>
         </form>
     {% endif %}
+</div>
 </body>
-</center>
 </html>
