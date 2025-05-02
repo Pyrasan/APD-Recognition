@@ -1,0 +1,6 @@
+cvzone
+opencv-python
+ultralytics
+tk
+openpyxl
+face_recognition
