@@ -1,13 +1,24 @@
 # APD-Recognition
 
-Package Requirement
+Package Requirement | local
 1. OpenCV Python `pip install opencv-python`
 2. CVZone `pip install cvzone`
 3. ultralytics `pip install ultralytics`
 4. tkinter `pip install tk`
 5. PyExcel `pip install opnepyxl`
+6. Face Recognition `pip install face_recognition`
 
-All at once `pip install Requirements.txt`
+All at once `pip install -r local_requirements.txt`
+
+Package Requirement | web
+1. Flask `pip install Flask`
+2. OpenCN Python `pip install opencv-python`
+3. Face Recognition `pip install face_recognition`
+4. ultralytics `pip install ultralytics`
+5. CVZone `pip install cvzone`
+6. PyExcel `pip install openpyxl`
+
+All at once `pip install -r web_requirements.txt`
 
 Note: Recommended to use Virtual Environment to avoid issues with another Python version
 
