@@ -9,23 +9,37 @@ from ultralytics import YOLO
 import cvzone
 import face_recognition
 import openpyxl
+import sys
+
+# Fungsi untuk mendapatkan path absolut (untuk PyInstaller)
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS  # PyInstaller temp folder
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+# Path untuk file input (bundled)
+model_path = resource_path("models/shape_predictor_68_face_landmarks.dat")
+
+# Path output tetap (bukan di temp folder)
+OUTPUT_DIR = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(OUTPUT_DIR, 'static', 'detected_images')
+EXCEL_FOLDER = os.path.join(OUTPUT_DIR, 'laporan')
 
 app = Flask(__name__)
-UPLOAD_FOLDER = os.path.join('static', 'detected_images')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load face encoding
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ENCODE_FILE = os.path.join(BASE_DIR, 'EncodeFile.p')
-
+ENCODE_FILE = os.path.join(OUTPUT_DIR, 'EncodeFile.p')
 with open(ENCODE_FILE, 'rb') as f:
     encodeListKnown, knownNames = pickle.load(f)
 
 # Load YOLO models untuk masing-masing APD
-model_helm = YOLO(os.path.join(BASE_DIR, 'helm.pt'))
-model_rompi = YOLO(os.path.join(BASE_DIR, 'rompi.pt'))
-model_sepatu = YOLO(os.path.join(BASE_DIR, 'sepatu.pt'))
-model_sarungtangan = YOLO(os.path.join(BASE_DIR, 'sarungtangan.pt'))
+model_helm = YOLO(os.path.join(OUTPUT_DIR, 'helm.pt'))
+model_rompi = YOLO(os.path.join(OUTPUT_DIR, 'rompi.pt'))
+model_sepatu = YOLO(os.path.join(OUTPUT_DIR, 'sepatu.pt'))
+model_sarungtangan = YOLO(os.path.join(OUTPUT_DIR, 'sarungtangan.pt'))
 
 model_info = [
     (model_helm, "Helm"),
@@ -74,7 +88,7 @@ def detect_apd_from_image(img):
         for r in results:
             for box in r.boxes:
                 conf = box.conf[0]
-                if conf > 0.65:
+                if conf > 0.5:
                     detected_items.add(label)
                     x1, y1, x2, y2 = map(int, box.xyxy[0])
                     w, h = x2 - x1, y2 - y1
@@ -84,9 +98,8 @@ def detect_apd_from_image(img):
     return detected_items
 
 def setup_excel():
-    folder = 'laporan'
-    os.makedirs(folder, exist_ok=True)
-    filepath = os.path.join(folder, 'DataPekerja.xlsx')
+    os.makedirs(EXCEL_FOLDER, exist_ok=True)
+    filepath = os.path.join(EXCEL_FOLDER, 'DataPekerja.xlsx')
     if not os.path.exists(filepath):
         wb = openpyxl.Workbook()
         ws = wb.active
@@ -107,7 +120,7 @@ def log_to_excel(name, status, apd_list, filename):
 
 # --- Routes ---
 @app.route('/', methods=['GET', 'POST'])
-def index():
+def index():    
     if request.method == 'POST':
         if 'confirm' in request.form:
             name = request.form['name']
