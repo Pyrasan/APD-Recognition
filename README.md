@@ -80,6 +80,8 @@ Custom Dataset Training using Google Collab:
 
 *Note: If download Dataset from outside, skip to step 8
 
+Ready to use `https://colab.research.google.com/drive/1ZeY2375iUu71WsEt9b4CZc5W0yHH6qcQ?usp=sharing#scrollTo=uAHhv_8ph4Er`
+
 -------------------------------------------------------------
 
 # YOLOv8 Weights Download
