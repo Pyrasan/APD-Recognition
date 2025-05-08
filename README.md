@@ -1,4 +1,4 @@
-# APD-Recognition
+# Package Requirement
 
 Package Requirement | local
 1. OpenCV Python `pip install opencv-python`
@@ -25,6 +25,8 @@ PyInstaller `pip install pyinstaller` -> Creating .exe
 Note: Recommended to use Virtual Environment to avoid issues with another Python version
 
 ---------------------------------------------------------------------------------
+
+# Dataset Training
 
 Custom Dataset Training using Google Collab:
 1. Download Image Labelling from github repository `https://github.com/HumanSignal/labelImg/releases/tag/v1.8.1` choose `windows_v1.8.1.zip`
