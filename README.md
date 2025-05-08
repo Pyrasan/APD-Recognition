@@ -111,7 +111,11 @@ project-folder/
     └── index.html
 ```
 
-shape_predictor model `http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2`
+---------------------------------------------------------------
+
+# Building app.exe
+
+shape_predictor model `http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2` to folder `models` under main folder
 
 Create app.exe Command `pyinstaller --onefile --add-data "templates;templates" --add-data "static;static" --add-data "models;models" --add-data "EncodeFile.p;." --add-data "helm.pt;." --add-data "rompi.pt;." --add-data "sepatu.pt;." --add-data "sarungtangan.pt;." app.py
 `
