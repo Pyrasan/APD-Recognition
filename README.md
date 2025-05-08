@@ -88,6 +88,7 @@ Ready to use `https://colab.research.google.com/drive/1ZeY2375iUu71WsEt9b4CZc5W0
 
 # YOLOv8 Weights Download
 
+Ready to use
 `https://drive.google.com/drive/folders/1hr0uoZPzmqk5PSoxRONG0HotxXcK3Nus?usp=sharing` 
 
 -------------------------------------------------------------
