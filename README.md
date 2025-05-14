@@ -26,6 +26,12 @@ Note: Recommended to use Virtual Environment to avoid issues with another Python
 
 ---------------------------------------------------------------------------------
 
+# Dataset Sample
+
+All in Roboflow `https://universe.roboflow.com/search?q=ppe`
+
+---------------------------------------------------------------------------------
+
 # Dataset Training
 
 Custom Dataset Training using Google Collab:
@@ -47,7 +53,7 @@ Custom Dataset Training using Google Collab:
 9. Create `data.yaml`
 10. Write
     
-    path: ../drive/MyDrive/(your drive path)
+    path: ../drive/MyDrive/(your drive folder path)
     
     train: ../train/images
     
@@ -57,8 +63,8 @@ Custom Dataset Training using Google Collab:
 
     nc: n `(n=number of classes)`
     
-    names: ['(your labels seperate with coma)']
-13. Upload the 3 folders to GDrive
+    names: ['(label1)', 'label2', 'etc.']
+13. Upload the 3 folders with `data.yaml` to GDrive
 14. Open Google Collab
 15. Mount GDrive to Google Collab
 
@@ -80,7 +86,7 @@ Custom Dataset Training using Google Collab:
     e. `!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/MyDrive/(path to data.yaml) epochs=50 imgsz=640` | Training dataset and creating weights for YOLOv8
 18. Write the code and put the weights `best.apt` to the folder
 
-*Note: If download Dataset from outside, skip to step 8
+*Note: If download Dataset from outside, skip to step 9
 
 Ready to use `https://colab.research.google.com/drive/1ZeY2375iUu71WsEt9b4CZc5W0yHH6qcQ?usp=sharing#scrollTo=uAHhv_8ph4Er`
 
