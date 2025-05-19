@@ -113,8 +113,8 @@ project-folder/
 ├── models/
 │   └── shape_predictor_68_face_landmarks.dat
 ├── static/
-│   └── detected_images/       <- Hasil deteksi disimpan di sini
-├── laporan/                   <- File Excel akan disimpan/diupdate di sini
+│   └── detected_images/       <- Detection image result will be saved here
+├── laporan/                   <- Excel file will be saved here
 └── templates/
     └── index.html
 ```
